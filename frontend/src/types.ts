@@ -1,5 +1,4 @@
 export interface Task {
-  updatedAt: any;
   _id: string;
   title: string;
   description?: string;

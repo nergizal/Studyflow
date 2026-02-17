@@ -32,12 +32,6 @@ const TaskSchema: Schema = new Schema(
       enum: ['todo', 'doing', 'done'], 
       default: 'todo' 
     },
-
-// Analiz için kritik alanlar:
-  pomodoroSessions: { type: Number, default: 0 }, // Tamamlanan 25dk'lık seans sayısı
-  actualMinutes: { type: Number, default: 0 },    // Toplam harcanan dakika
-  completedAt: { type: Date },
-
     estimated_pomodoros: { type: Number, default: 1 }
   },
   { timestamps: true }

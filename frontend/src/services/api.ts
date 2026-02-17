@@ -16,7 +16,6 @@ apiClient.interceptors.request.use((config) => {
   return config;
 });
 
-
 // --- AUTH İSTEKLERİ ---
 export const login = async (credentials: any) => {
   const response = await apiClient.post("/auth/login", credentials);
@@ -52,10 +51,3 @@ export const completeSession = async (sessionData: any) => {
   const response = await apiClient.post("/sessions/complete", sessionData);
   return response.data;
 };
-
-// --- AI İSTEKLERİ ---
-export const breakdownTaskWithAI = async (title: string) => {
-  const response = await apiClient.post("/tasks/ai-breakdown", { title });
-  return response.data;
-};
-
