@@ -1,19 +1,13 @@
 import { Router } from "express";
-import * as aiService from "../services/aiService";
+import { getTasks, createTask, updateTask, deleteTask } from "../controllers/taskController";
+import { protect } from "../middleware/authMiddleware";
 
 const router = Router();
 
-// Test için protect eklemiyoruz, direkt erişelim
-router.post("/ai-breakdown", async (req, res) => {
-  try {
-    const { title } = req.body;
-    console.log("AI İsteği Geldi:", title); // Terminalde bunu görmelisin
-    const result = await aiService.breakdownTask(title);
-    res.json(result);
-  } catch (error: any) {
-    console.error("AI Hatası Detay:", error);
-    res.status(500).json({ message: error.message });
-  }
-});
+// Bütün task rotalarının önüne "protect" ekleyerek dışarıdan erişimi kapatıyoruz
+router.get("/", protect, getTasks);
+router.post("/", protect, createTask);
+router.put("/:id", protect, updateTask);
+router.delete("/:id", protect, deleteTask);
 
 export default router;
