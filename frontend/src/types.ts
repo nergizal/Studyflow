@@ -9,4 +9,11 @@ export interface Task {
   status: 'todo' | 'doing' | 'done';
   estimated_pomodoros: number;
   createdAt: string;
+<<<<<<< Updated upstream
 }
+=======
+}
+
+//2. pr denemesi ???
+//şimdi 2.pr test branchi deniyorum.
+>>>>>>> Stashed changes
